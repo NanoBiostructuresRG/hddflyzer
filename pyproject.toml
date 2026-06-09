@@ -8,7 +8,7 @@ build-backend = "hatchling.build"
 [project]
 name = "hddflyzer"
 dynamic = ["version"]
-description = "Modular pipeline for molecular descriptor analysis, chemical space visualization, and pharmacological similarity of organic compound collections."
+description = "Traceable, reproducible molecular descriptor-space workflows for CLI and Python."
 readme = "README.md"
 license = "LGPL-3.0-or-later"
 license-files = ["LICENSE", "COPYING", "COPYING.LESSER"]

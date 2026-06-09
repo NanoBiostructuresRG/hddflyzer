@@ -1,4 +1,4 @@
-# HDDFlyzer: High-Dimensional Descriptor-based Pharmacological Analyzer
+# HDDFlyzer: High-Dimensional Descriptor-based Feature Space Analyzer
 
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-v0.1.0-blue.svg)](https://pypi.org/project/hddflyzer/)
@@ -626,7 +626,7 @@ If you use **HDDFlyzer** in your research, please cite it using the metadata in
 [CITATION.cff](CITATION.cff) or the format below:
 
 ```text
-Contreras-Torres, F. F. (2026). HDDFlyzer: High-Dimensional Descriptor-based Pharmacological Analyzer. https://github.com/NanoBiostructuresRG/hddflyzer
+Contreras-Torres, F. F. (2026). HDDFlyzer: High-Dimensional Descriptor-based Feature Space Analyzer. https://github.com/NanoBiostructuresRG/hddflyzer
 ```
 
 ---
@@ -634,7 +634,7 @@ Contreras-Torres, F. F. (2026). HDDFlyzer: High-Dimensional Descriptor-based Pha
 ## Author
 
 Developed by **Flavio F. Contreras-Torres** (Tecnologico de Monterrey)
-Monterrey, Mexico - May 2026
+Monterrey, Mexico - June 2026
 
 ---
 
