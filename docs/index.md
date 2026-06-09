@@ -178,9 +178,7 @@ HDDFlyzer is not currently:
 ## Citation
 
 ```text
-Contreras-Torres, F. F. (2026). HDDFlyzer: Modular pipeline for molecular
-descriptor analysis, chemical space visualization, and pharmacological
-similarity of organic compound collections. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
+Contreras-Torres, F. F. (2026). HDDFlyzer: High-Dimensional Descriptor-based Feature Space Analyzer. https://github.com/NanoBiostructuresRG/hddflyzer
 ```
 
 ## License
