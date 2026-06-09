@@ -1,0 +1,458 @@
+/* SPDX-License-Identifier: LGPL-3.0-or-later */
+/* HDDFlyzer custom theme — homologated from HARMONSMILE reference */
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap");
+
+:root {
+  --md-primary-fg-color:        #355c7d;
+  --md-primary-fg-color--light: #547ca1;
+  --md-primary-fg-color--dark:  #213d55;
+  --md-primary-bg-color:        #ffffff;
+  --md-accent-fg-color:         #1f9f8f;
+  --hdf-surface:                #ffffff;
+  --hdf-surface-soft:           #f4f8fb;
+  --hdf-border:                 #d8e4ea;
+  --hdf-text-muted:             #5f6f7a;
+  --hdf-teal:                   #1f9f8f;
+  --hdf-blue:                   #355c7d;
+  --hdf-amber:                  #e3a72f;
+  --hdf-shadow:                 0 1rem 2.5rem rgba(36, 63, 89, 0.12);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #547ca1;
+  --md-primary-fg-color--light: #7fa8ca;
+  --md-primary-fg-color--dark:  #355c7d;
+  --md-accent-fg-color:         #58c7b9;
+  --hdf-surface:                #17202a;
+  --hdf-surface-soft:           #101820;
+  --hdf-border:                 #2b4152;
+  --hdf-text-muted:             #b5c4ce;
+  --hdf-teal:                   #58c7b9;
+  --hdf-blue:                   #8cb7d6;
+  --hdf-amber:                  #f0c66a;
+  --hdf-shadow:                 0 1rem 2.5rem rgba(0, 0, 0, 0.28);
+}
+
+/* ── Header / tabs ───────────────────────────────────────────────────────── */
+
+.md-header,
+.md-tabs {
+  box-shadow: none;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  display: none;
+}
+
+.md-header__button.md-logo,
+.md-nav__button.md-logo {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.md-header__button.md-logo::before,
+.md-nav__button.md-logo::before {
+  --hdf-header-dot: 0.26rem;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow:
+    calc(var(--hdf-header-dot) * 1.75) 0 0 #ffffff,
+    calc(var(--hdf-header-dot) * 3.5)  0 0 #ffffff,
+    0 calc(var(--hdf-header-dot) * 1.75) 0 #ffffff,
+    calc(var(--hdf-header-dot) * 1.75) calc(var(--hdf-header-dot) * 1.75) 0 calc(var(--hdf-header-dot) * -0.16) #ffffff,
+    calc(var(--hdf-header-dot) * 3.5)  calc(var(--hdf-header-dot) * 1.75) 0 #ffffff,
+    0 calc(var(--hdf-header-dot) * 3.5) 0 #ffffff,
+    calc(var(--hdf-header-dot) * 1.75) calc(var(--hdf-header-dot) * 3.5)  0 #ffffff,
+    calc(var(--hdf-header-dot) * 3.5)  calc(var(--hdf-header-dot) * 3.5)  0 #ffffff;
+  content: "";
+  display: block;
+  height: var(--hdf-header-dot);
+  transform: translate(-0.46rem, -0.46rem);
+  width: var(--hdf-header-dot);
+}
+
+/* ── Layout ──────────────────────────────────────────────────────────────── */
+
+.md-main__inner {
+  margin-top: 1.4rem;
+}
+
+.md-content__inner {
+  padding-bottom: 3rem;
+}
+
+.md-content,
+.md-content__inner,
+.md-typeset,
+.md-typeset > * {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.md-typeset img,
+.md-typeset svg,
+.md-typeset video,
+.md-typeset iframe {
+  max-width: 100%;
+}
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.md-typeset h1 {
+  color: var(--hdf-blue);
+}
+
+.md-typeset h2 {
+  margin-top: 2.4rem;
+}
+
+.md-typeset a {
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+
+.md-typeset .md-button {
+  border-radius: 0.45rem;
+  font-weight: 700;
+}
+
+.md-typeset .md-button--primary {
+  background-color: var(--hdf-teal);
+  border-color: var(--hdf-teal);
+  color: #ffffff;
+}
+
+.md-typeset .md-button--primary:hover {
+  background-color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+}
+
+/* ── Code ────────────────────────────────────────────────────────────────── */
+
+.md-typeset code {
+  border-radius: 0.25rem;
+}
+
+.md-typeset pre,
+.md-typeset .highlight {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* ── Tables ──────────────────────────────────────────────────────────────── */
+
+.md-typeset table:not([class]) {
+  border-radius: 0.55rem;
+  box-shadow: 0 0 0 1px var(--hdf-border);
+  overflow: hidden;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--hdf-surface-soft);
+  color: var(--hdf-blue);
+}
+
+.md-typeset table.hdf-pipeline-table {
+  border-radius: 0.55rem;
+  box-shadow: 0 0 0 1px var(--hdf-border);
+  display: block;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  margin-top: 1.35rem;
+  max-width: 100%;
+  overflow-x: auto;
+  table-layout: auto;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.md-typeset table.hdf-pipeline-table th {
+  background-color: var(--hdf-surface-soft);
+  color: var(--hdf-blue);
+  font-size: 0.68rem;
+  font-weight: 750;
+  padding: 0.55rem 0.7rem;
+  text-transform: none;
+}
+
+.md-typeset table.hdf-pipeline-table td {
+  padding: 0.52rem 0.7rem;
+  vertical-align: middle;
+}
+
+.md-typeset table.hdf-pipeline-table code {
+  font-size: 0.68rem;
+  padding: 0.08rem 0.22rem;
+}
+
+.md-typeset table.hdf-pipeline-table th:nth-child(1),
+.md-typeset table.hdf-pipeline-table th:nth-child(2),
+.md-typeset table.hdf-pipeline-table td:nth-child(1),
+.md-typeset table.hdf-pipeline-table td:nth-child(2) {
+  min-width: 8.2rem;
+  white-space: nowrap;
+}
+
+.md-typeset table.hdf-pipeline-table td:nth-child(1) code,
+.md-typeset table.hdf-pipeline-table td:nth-child(2) code {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+
+.hdf-hero {
+  align-items: center;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(31, 159, 143, 0.12), transparent 22rem),
+    linear-gradient(135deg, var(--hdf-surface-soft) 0%, var(--hdf-surface) 62%);
+  border: 1px solid var(--hdf-border);
+  border-radius: 0.8rem;
+  box-shadow: var(--hdf-shadow);
+  display: flex;
+  justify-content: center;
+  margin: 0 0 2rem;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 2.8rem);
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.md-typeset > h1:first-child:has(+ .hdf-hero) {
+  display: none;
+}
+
+.hdf-hero::before {
+  background: linear-gradient(180deg, var(--hdf-teal), var(--hdf-amber));
+  content: "";
+  inset: 0 auto 0 0;
+  position: absolute;
+  width: 0.35rem;
+}
+
+.hdf-hero__content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 46rem;
+  width: 100%;
+}
+
+.hdf-eyebrow {
+  align-self: flex-start;
+  color: var(--hdf-teal);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.45rem;
+  text-transform: uppercase;
+}
+
+/* ── Brand / wordmark ────────────────────────────────────────────────────── */
+
+.hdf-brand {
+  align-items: center;
+  display: inline-flex;
+  gap: clamp(0.75rem, 2vw, 1.1rem);
+  justify-content: center;
+  margin: 50px auto clamp(0.8rem, 2.4vw, 1.2rem);
+  max-width: 100%;
+  padding-inline: 0.35rem;
+}
+
+.hdf-dotmark {
+  --hdf-dot-size: clamp(0.46rem, 1.3vw, 0.7rem);
+  display: grid;
+  gap: calc(var(--hdf-dot-size) * 0.52);
+  grid-template-columns: repeat(3, var(--hdf-dot-size));
+  grid-template-rows: repeat(3, var(--hdf-dot-size));
+}
+
+.hdf-dotmark span {
+  background: #355c7d;
+  border-radius: 999px;
+  display: block;
+  height: var(--hdf-dot-size);
+  width: var(--hdf-dot-size);
+}
+
+.hdf-dotmark span:nth-child(5) {
+  align-self: center;
+  height: calc(var(--hdf-dot-size) * 0.35);
+  justify-self: center;
+  width: calc(var(--hdf-dot-size) * 0.35);
+}
+
+.hdf-wordmark {
+  color: #355c7d;
+  display: inline-block;
+  font-family: "Manrope", "Inter", system-ui, sans-serif;
+  font-size: clamp(2rem, 5.4vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  line-height: 1;
+  max-width: 100%;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.hdf-subtitle {
+  color: var(--hdf-text-muted);
+  font-size: clamp(0.8rem, 1.45vw, 0.94rem);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 34rem;
+}
+
+/* ── Actions / badges ────────────────────────────────────────────────────── */
+
+.hdf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+.hdf-actions .md-button {
+  font-size: 0.61rem;
+  line-height: 1.1;
+  margin: 0;
+  min-height: 1.78rem;
+  padding: 0.48em 0.78em;
+}
+
+.hdf-badges {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.24rem;
+  justify-content: center;
+  margin-top: 0.85rem;
+}
+
+.hdf-badges img {
+  display: block;
+  height: 1.02rem;
+  margin: 0;
+  max-width: 100%;
+}
+
+/* ── Panels / grid / cards ───────────────────────────────────────────────── */
+
+.hdf-panel {
+  margin: 1.5rem 0 2.2rem;
+}
+
+.hdf-grid {
+  display: grid;
+  gap: 1rem;
+  max-width: 100%;
+}
+
+.hdf-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hdf-card {
+  background: var(--hdf-surface);
+  border: 1px solid var(--hdf-border);
+  border-radius: 0.65rem;
+  box-shadow: 0 0.45rem 1.25rem rgba(36, 63, 89, 0.07);
+  min-width: 0;
+  padding: 1.15rem;
+}
+
+.hdf-card h3 {
+  color: var(--hdf-blue);
+  font-size: 1rem;
+  margin: 0.25rem 0 0.45rem;
+}
+
+.hdf-card p {
+  color: var(--hdf-text-muted);
+  margin: 0;
+}
+
+.hdf-card__icon {
+  align-items: center;
+  background: color-mix(in srgb, var(--hdf-teal) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--hdf-teal) 28%, transparent);
+  border-radius: 999px;
+  color: var(--hdf-teal);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 800;
+  height: 2rem;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+  width: 2rem;
+}
+
+.hdf-card--compact {
+  padding: 1rem;
+}
+
+.hdf-card--compact h3 {
+  border-bottom: 2px solid var(--hdf-amber);
+  display: inline-block;
+  padding-bottom: 0.15rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media screen and (max-width: 58rem) {
+  .hdf-grid--three {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 36rem) {
+  .hdf-hero {
+    padding: 1.2rem;
+  }
+
+  .hdf-actions .md-button {
+    margin-top: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hdf-actions {
+    margin-top: 28px;
+  }
+
+  .hdf-badges {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .hdf-eyebrow {
+    align-self: center;
+    text-align: center;
+  }
+
+  .hdf-brand {
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-top: 43px;
+  }
+
+  .hdf-wordmark {
+    font-size: clamp(1.45rem, 8.4vw, 2.2rem);
+  }
+}
