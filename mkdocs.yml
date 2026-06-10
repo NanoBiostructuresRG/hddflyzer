@@ -9,13 +9,13 @@ theme:
       primary: custom
       accent: custom
       toggle:
-        icon: material/weather-night
+        icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
       primary: custom
       accent: custom
       toggle:
-        icon: material/weather-sunny
+        icon: material/brightness-4
         name: Switch to light mode
   font:
     text: Inter
@@ -31,6 +31,18 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+repo_url: https://github.com/NanoBiostructuresRG/hddflyzer
+repo_name: NanoBiostructuresRG/hddflyzer
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/NanoBiostructuresRG/hddflyzer
+      name: HDDFlyzer on GitHub
+    - icon: material/account-group
+      link: https://nanobiostructuresrg.github.io/
+      name: NanoBiostructures Research Group
+
 plugins:
   - search
   - mkdocstrings:
@@ -45,7 +57,7 @@ plugins:
 nav:
   - Home: index.md
   - Usage: usage.md
-  - API Overview: api.md
+  - API Reference: api.md
   - Changelog: changelog.md
 
 markdown_extensions:
@@ -54,6 +66,7 @@ markdown_extensions:
   - md_in_html
   - pymdownx.details
   - pymdownx.highlight
+  - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
