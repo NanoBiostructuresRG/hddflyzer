@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.2] - 2026-06-10
+
+### Added
+
+- Added global CLI version reporting with `hddflyzer --version`.
+- Added the short CLI version flag `hddflyzer -V`.
+
+### Changed
+
+- Updated the internal HDDFlyzer version to `0.1.2`.
+
+### Packaging
+
+- Validated local editable installation with `python -m pip install -e .`.
+- Validated local wheel and sdist builds with `python -m build`.
+- Confirmed that `hddflyzer/config/descriptor_config.json` is included in both
+  the wheel and sdist artifacts.
+- Kept PyPI publication deferred to a later release cycle.
+
+---
+
 ## [0.1.1] - 2026-06-10
 
 ### Changed
@@ -165,5 +186,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[0.1.2]: https://github.com/NanoBiostructuresRG/hddflyzer/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/NanoBiostructuresRG/hddflyzer/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/NanoBiostructuresRG/hddflyzer/releases/tag/v0.1.0
