@@ -1,18 +1,49 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to HDDFlyzer will be documented in this file.
 
-This project is currently pre-release research software. Until the first public
-release, entries under `Unreleased` describe the current local development state
-rather than a published version.
-
-The format follows the spirit of [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
-Versioning will be finalized when the project is prepared for its first public
-release.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
-## [0.1.0] - 2026-06-09
+## [0.1.1] - 2026-06-10
+
+### Changed
+
+- Reworked the project documentation site around clearer page identities:
+  `Usage` now focuses on running HDDFlyzer and understanding generated outputs,
+  while `API Overview and Reference` separates guided Python examples from the
+  auto-generated API reference.
+- Refined the Home page narrative to better describe the motivation for
+  HDDFlyzer, the dataset-first result model, descriptor-space provenance, and
+  representative molecular features.
+- Updated the documentation visual identity with a teal/deep-petroleum palette,
+  warmer admonitions, a single-color header, balanced dark-mode contrast, and
+  more consistent footer spacing.
+- Improved the Changelog page rendering and presentation through MkDocs snippet
+  support and focused changelog styling.
+
+### Added
+
+- Added Home-page examples for descriptor-space outputs using documentation
+  assets from `docs/assets/`.
+- Added footer social links for the HDDFlyzer GitHub repository and the
+  NanoBiostructures Research Group website.
+- Added a pre-stable documentation notice that states HDDFlyzer is currently in
+  Alpha-stage development.
+
+### Fixed
+
+- Fixed the documentation Changelog page so it renders entries from
+  `CHANGELOG.md` in the project documentation site.
+- Corrected the API navigation label from `API Overview` to
+  `API Reference`, then refined the page title to
+  `API Overview and Reference` to match its combined guide/reference role.
+
+---
+
+## [0.1.0] - 2026-06-08
 
 ### Added
 
@@ -134,4 +165,5 @@ release.
 
 ---
 
-<!-- Release links can be added after the project is published. -->
+[0.1.1]: https://github.com/NanoBiostructuresRG/hddflyzer/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/NanoBiostructuresRG/hddflyzer/releases/tag/v0.1.0

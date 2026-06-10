@@ -4,34 +4,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap");
 
 :root {
-  --md-primary-fg-color:        #355c7d;
-  --md-primary-fg-color--light: #547ca1;
-  --md-primary-fg-color--dark:  #213d55;
+  --md-default-bg-color:        #f4faf9;
+  --md-default-fg-color:        #1f2d35;
+  --md-default-fg-color--light: #4e6669;
+  --md-default-fg-color--lighter: #789093;
+  --md-primary-fg-color:        #0f766e;
+  --md-primary-fg-color--light: #159487;
+  --md-primary-fg-color--dark:  #0e5a66;
   --md-primary-bg-color:        #ffffff;
-  --md-accent-fg-color:         #1f9f8f;
+  --md-accent-fg-color:         #d99a21;
+  --md-typeset-a-color:         #0f766e;
+  --md-code-bg-color:           #e8f4f2;
+  --md-code-fg-color:           #123f45;
   --hdf-surface:                #ffffff;
-  --hdf-surface-soft:           #f4f8fb;
-  --hdf-border:                 #d8e4ea;
-  --hdf-text-muted:             #5f6f7a;
-  --hdf-teal:                   #1f9f8f;
-  --hdf-blue:                   #355c7d;
-  --hdf-amber:                  #e3a72f;
-  --hdf-shadow:                 0 1rem 2.5rem rgba(36, 63, 89, 0.12);
+  --hdf-surface-soft:           #e8f4f2;
+  --hdf-border:                 #c5ddda;
+  --hdf-text-muted:             #5b6f76;
+  --hdf-teal:                   #0f766e;
+  --hdf-deep:                   #0e5a66;
+  --hdf-blue:                   #0e5a66;
+  --hdf-amber:                  #d99a21;
+  --hdf-shadow:                 0 1rem 2.5rem rgba(14, 90, 102, 0.13);
 }
 
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color:        #547ca1;
-  --md-primary-fg-color--light: #7fa8ca;
-  --md-primary-fg-color--dark:  #355c7d;
-  --md-accent-fg-color:         #58c7b9;
-  --hdf-surface:                #17202a;
-  --hdf-surface-soft:           #101820;
-  --hdf-border:                 #2b4152;
-  --hdf-text-muted:             #b5c4ce;
-  --hdf-teal:                   #58c7b9;
-  --hdf-blue:                   #8cb7d6;
-  --hdf-amber:                  #f0c66a;
-  --hdf-shadow:                 0 1rem 2.5rem rgba(0, 0, 0, 0.28);
+  --md-default-bg-color:        #102326;
+  --md-default-fg-color:        #e9f4f2;
+  --md-default-fg-color--light: #c8d9d7;
+  --md-default-fg-color--lighter: #9fb8b6;
+  --md-primary-fg-color:        #0e5a66;
+  --md-primary-fg-color--light: #159487;
+  --md-primary-fg-color--dark:  #0a3e46;
+  --md-primary-bg-color:        #effaf8;
+  --md-accent-fg-color:         #f2b94b;
+  --md-typeset-a-color:         #5ee0d2;
+  --md-code-bg-color:           #153136;
+  --md-code-fg-color:           #effaf8;
+  --hdf-surface:                #142b2f;
+  --hdf-surface-soft:           #19363b;
+  --hdf-border:                 #2a565c;
+  --hdf-text-muted:             #c8d9d7;
+  --hdf-teal:                   #5ee0d2;
+  --hdf-deep:                   #9ce8df;
+  --hdf-blue:                   #9ce8df;
+  --hdf-amber:                  #f2b94b;
+  --hdf-shadow:                 0 1rem 2.5rem rgba(0, 0, 0, 0.36);
 }
 
 /* ── Header / tabs ───────────────────────────────────────────────────────── */
@@ -39,6 +56,11 @@
 .md-header,
 .md-tabs {
   box-shadow: none;
+}
+
+.md-header,
+.md-tabs {
+  background-color: var(--md-primary-fg-color);
 }
 
 .md-header__button.md-logo img,
@@ -84,6 +106,11 @@
   padding-bottom: 3rem;
 }
 
+.md-footer-meta__inner {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
 .md-content,
 .md-content__inner,
 .md-typeset,
@@ -120,6 +147,55 @@
 .md-typeset a {
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;
+}
+
+/* ── Admonitions / callouts ──────────────────────────────────────────────── */
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-color: var(--hdf-amber);
+  border-radius: 0.55rem;
+  box-shadow: 0 0.35rem 1rem color-mix(in srgb, var(--hdf-amber) 18%, transparent);
+}
+
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > summary {
+  background-color: color-mix(in srgb, var(--hdf-amber) 18%, transparent);
+}
+
+.md-typeset .admonition > .admonition-title::before,
+.md-typeset details > summary::before {
+  background-color: var(--hdf-amber);
+}
+
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: var(--hdf-amber);
+}
+
+.md-typeset .admonition.note > .admonition-title,
+.md-typeset details.note > summary {
+  background-color: color-mix(in srgb, var(--hdf-amber) 18%, transparent);
+}
+
+.md-typeset .admonition.note > .admonition-title::before,
+.md-typeset details.note > summary::before {
+  background-color: var(--hdf-amber);
+}
+
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-color: var(--hdf-amber);
+}
+
+.md-typeset .admonition.warning > .admonition-title,
+.md-typeset details.warning > summary {
+  background-color: color-mix(in srgb, var(--hdf-amber) 16%, transparent);
+}
+
+.md-typeset .admonition.warning > .admonition-title::before,
+.md-typeset details.warning > summary::before {
+  background-color: var(--hdf-amber);
 }
 
 /* ── Buttons ─────────────────────────────────────────────────────────────── */
@@ -212,12 +288,34 @@
   word-break: keep-all;
 }
 
+/* ── Changelog ───────────────────────────────────────────────────────────── */
+
+.hdf-changelog h2 {
+  border-left: 0.18rem solid transparent;
+  border-radius: 0.25rem;
+  padding-left: 0.55rem;
+  transition:
+    border-color 160ms ease,
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.hdf-changelog h2:hover {
+  background-color: color-mix(in srgb, var(--hdf-teal) 8%, transparent);
+  border-left-color: var(--hdf-teal);
+  color: var(--hdf-teal);
+}
+
+.hdf-changelog h2:hover .headerlink {
+  color: var(--hdf-teal);
+}
+
 /* ── Hero ────────────────────────────────────────────────────────────────── */
 
 .hdf-hero {
   align-items: center;
   background:
-    radial-gradient(circle at 50% 20%, rgba(31, 159, 143, 0.12), transparent 22rem),
+    radial-gradient(circle at 50% 20%, color-mix(in srgb, var(--hdf-teal) 14%, transparent), transparent 22rem),
     linear-gradient(135deg, var(--hdf-surface-soft) 0%, var(--hdf-surface) 62%);
   border: 1px solid var(--hdf-border);
   border-radius: 0.8rem;
@@ -269,7 +367,7 @@
   display: inline-flex;
   gap: clamp(0.75rem, 2vw, 1.1rem);
   justify-content: center;
-  margin: 50px auto clamp(0.8rem, 2.4vw, 1.2rem);
+  margin: 80px auto 60px;
   max-width: 100%;
   padding-inline: 0.35rem;
 }
@@ -283,7 +381,7 @@
 }
 
 .hdf-dotmark span {
-  background: #355c7d;
+  background: var(--hdf-blue);
   border-radius: 999px;
   display: block;
   height: var(--hdf-dot-size);
@@ -298,7 +396,7 @@
 }
 
 .hdf-wordmark {
-  color: #355c7d;
+  color: var(--hdf-blue);
   display: inline-block;
   font-family: "Manrope", "Inter", system-ui, sans-serif;
   font-size: clamp(2rem, 5.4vw, 3.5rem);
@@ -372,9 +470,20 @@
   background: var(--hdf-surface);
   border: 1px solid var(--hdf-border);
   border-radius: 0.65rem;
-  box-shadow: 0 0.45rem 1.25rem rgba(36, 63, 89, 0.07);
+  box-shadow: 0 0.45rem 1.25rem rgba(14, 90, 102, 0.08);
   min-width: 0;
   padding: 1.15rem;
+}
+
+[data-md-color-scheme="slate"] .hdf-card {
+  box-shadow: 0 0.45rem 1.25rem rgba(0, 0, 0, 0.22);
+}
+
+.hdf-card--notice {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--hdf-amber) 18%, transparent), transparent 52%),
+    var(--hdf-surface);
+  border-left: 0.24rem solid var(--hdf-amber);
 }
 
 .hdf-card h3 {
@@ -413,10 +522,50 @@
   padding-bottom: 0.15rem;
 }
 
+/* ── Figures ─────────────────────────────────────────────────────────────── */
+
+.hdf-figure-pair {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1.4rem 0 2.1rem;
+}
+
+.hdf-figure-pair figure {
+  background: var(--hdf-surface);
+  border: 1px solid var(--hdf-border);
+  border-radius: 0.65rem;
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.hdf-figure-pair img {
+  aspect-ratio: 16 / 9;
+  display: block;
+  height: auto;
+  object-fit: contain;
+  padding: 0.55rem;
+  width: 100%;
+}
+
+.hdf-figure-pair figcaption {
+  border-top: 1px solid var(--hdf-border);
+  color: var(--hdf-text-muted);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  margin: 0;
+  padding: 0.55rem 0.7rem;
+}
+
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 
 @media screen and (max-width: 58rem) {
   .hdf-grid--three {
+    grid-template-columns: 1fr;
+  }
+
+  .hdf-figure-pair {
     grid-template-columns: 1fr;
   }
 }
@@ -449,7 +598,7 @@
   .hdf-brand {
     flex-direction: column;
     gap: 0.55rem;
-    margin-top: 43px;
+    margin-top: 73px;
   }
 
   .hdf-wordmark {

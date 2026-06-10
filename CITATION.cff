@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "HDDFlyzer: High-Dimensional Descriptor-based Feature Space Analyzer"
+version: "0.1.1"
+date-released: "2026-06-10"
+authors:
+  - family-names: "Contreras-Torres"
+    given-names: "Flavio F."
+    orcid: "https://orcid.org/0000-0003-2375-131X"
+    affiliation: "Tecnologico de Monterrey"
+repository-code: "https://github.com/NanoBiostructuresRG/hddflyzer"
+license: "LGPL-3.0-or-later"
+abstract: >-
+  HDDFlyzer is a pre-stable development prototype for a CLI-first cheminformatics 
+  toolkit with a Python API for reproducible, 
+  traceable molecular descriptor-space workflows. 
+  It generates descriptor, similarity, projection, and 
+  visualization outputs from compound collections, stores them with metadata, 
+  and supports later reconstruction, inspection, and analysis of completed 
+  runs.
+keywords:
+  - cheminformatics
+  - high-dimensional data analysis
+  - molecular descriptors
+  - data-space analysis
+  - molecular annotation
+  - RDKit
+  - machine learning

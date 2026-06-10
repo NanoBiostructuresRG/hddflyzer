@@ -1,7 +1,7 @@
 # Usage
 
-This page shows the practical HDDFlyzer workflow from the command line and from
-Python. HDDFlyzer is currently local pre-release research software.
+This page shows how to run HDDFlyzer from the command line and how to interpret
+the result folder it creates.
 
 ## Installation
 
@@ -24,61 +24,111 @@ dependency.
 
 ## Quick Start
 
-=== "CLI"
+Prepare a molecule registry and run the standard workflow for the `aocd`
+collection:
 
-    ```bash
-    # Prepare a molecule registry
-    hddflyzer data prepare aocd
+```bash
+hddflyzer data prepare aocd
+hddflyzer pipeline run aocd
+```
 
-    # Run the canonical pipeline
-    hddflyzer pipeline run aocd
-    ```
+The `aocd` value is the dataset tag. HDDFlyzer uses that tag to locate input
+data and to write outputs under `results/aocd/`.
 
-=== "Python"
+## Input Data
 
-    ```python
-    from hddflyzer.pipeline import execute_workflow
+HDDFlyzer starts from a local molecular collection stored as a CSV file. By
+default, input collections are placed in:
 
-    execution = execute_workflow("aocd")
+```text
+examples/
+```
 
-    if execution.ok:
-        run = execution.run
-    ```
+For a tag named `aocd`, a typical input file is:
 
-=== "Reconstruct"
+```text
+examples/valid_metadata_aocd.csv
+```
 
-    ```python
-    from hddflyzer.results import load_workflow_run
+When you run:
 
-    run = load_workflow_run("aocd")
-    run.workflow_contract
-    run.outputs(category="dimred")
-    ```
+```bash
+hddflyzer data prepare aocd
+```
 
-=== "Science"
+HDDFlyzer searches the input directory for a CSV file whose filename contains
+the tag `aocd`. You can also pass an explicit CSV path:
 
-    ```python
-    descriptors = run.descriptor_space(
-        category="chem",
-        operation="chem.features",
-    )
-    similarity = run.similarity_space(category="chem")
-    projection = run.projection_space(
-        category="dimred",
-        operation="dimred.pca",
-    )
-    ```
+```bash
+hddflyzer data prepare aocd path/to/input.csv
+```
 
-## Input and Results
+The input table must contain a SMILES column. Columns whose names contain
+`smiles` or `canonical_smiles` are detected automatically. A compound identifier
+column is optional; HDDFlyzer detects `identifier`, `id`, `compound_id`, or
+`molecule_id` when present, and otherwise creates identifiers automatically.
 
-HDDFlyzer works with a collection tag, for example `aocd`.
+To use a different input directory, set `HDDFLYZER_DATA_DIR`:
 
-Input CSV files are usually placed under `examples/`. All workflow outputs are
-written under:
+```powershell
+$env:HDDFLYZER_DATA_DIR = "C:\path\to\csvs"
+hddflyzer data prepare aocd
+```
+
+```bash
+HDDFLYZER_DATA_DIR=/path/to/csvs hddflyzer data prepare aocd
+```
+
+## Running the Workflow
+
+The canonical workflow follows this shape:
+
+```text
+compound collection
+  -> registry
+  -> descriptors and similarity
+  -> dimensionality reduction
+  -> visualization
+  -> manifest/results
+```
+
+Run the full workflow with:
+
+```bash
+hddflyzer pipeline run aocd
+```
+
+You can also run selected stages:
+
+```bash
+hddflyzer pipeline run aocd --skip-dimred
+hddflyzer pipeline run aocd --stages chem.features,chem.pruning
+```
+
+## Understanding the Result Folder
+
+All workflow outputs are written under:
 
 ```text
 results/<tag>/
 ```
+
+For `aocd`, this becomes:
+
+```text
+results/aocd/
+```
+
+The preparation step creates the canonical molecule registry:
+
+```text
+results/aocd/registry/molecules.csv
+```
+
+This registry records stable identifiers, raw and canonical SMILES, validity
+flags, source provenance, and row-level input metadata. Downstream descriptor,
+similarity, dimensionality-reduction, and visualization steps use this registry
+as the shared molecule base.
 
 Important result files include:
 
@@ -87,32 +137,14 @@ Important result files include:
 - registry, chemistry, feature, dimensionality-reduction, and figure outputs
 - operation metadata
 
-## Command-Line Interface
+Representative outputs include:
 
-The unified CLI entry point is:
-
-```bash
-hddflyzer <module> <subcommand> [args]
-```
-
-Common commands:
-
-```bash
-# Data preparation
-hddflyzer data prepare aocd
-
-# Pipeline control
-hddflyzer pipeline run aocd
-hddflyzer pipeline run aocd --skip-dimred
-hddflyzer pipeline run aocd --stages chem.features,chem.pruning
-
-# Module-level commands
-hddflyzer chem tanimoto aocd
-hddflyzer chem features aocd
-hddflyzer chem pruning aocd
-hddflyzer dimred pca aocd
-hddflyzer viz pca analysis aocd
-```
+- canonical molecule registry;
+- descriptor tables;
+- Tanimoto similarity matrix;
+- PCA, t-SNE, and UMAP projection coordinates;
+- figures;
+- result manifest and workflow summary.
 
 ## Workflow Modules
 
@@ -194,142 +226,37 @@ hddflyzer viz pca analysis aocd
   </tbody>
 </table>
 
-## Python Execution API
+## Common CLI Commands
 
-The workflow engine can be called from Python at three levels of control:
+```bash
+# Data preparation
+hddflyzer data prepare aocd
+hddflyzer data prepare aocd path/to/input.csv
 
-```python
-from hddflyzer.pipeline import execute_workflow, run_workflow, run_pipeline
+# Pipeline control
+hddflyzer pipeline run aocd
+hddflyzer pipeline run aocd --skip-dimred
+hddflyzer pipeline run aocd --stages chem.features,chem.pruning
 
-# High-level: returns WorkflowExecution
-execution = execute_workflow("aocd")
-
-# Mid-level: returns reconstructed WorkflowRun
-run = run_workflow("aocd")
-
-# Low-level: returns list[StageResult]
-results = run_pipeline("aocd")
+# Module-level commands
+hddflyzer chem tanimoto aocd
+hddflyzer chem features aocd
+hddflyzer chem pruning aocd
+hddflyzer dimred pca aocd
+hddflyzer viz pca analysis aocd
 ```
 
-## Reconstruct a Completed Run
+## Current Scope and Boundaries
 
-Completed runs can be reconstructed from `results/<tag>/manifest.json`:
+HDDFlyzer is not currently:
 
-```python
-from hddflyzer.results import load_workflow_run
-
-run = load_workflow_run("aocd")
-
-run.workflow_contract
-run.outputs(category="chem")
-run.outputs(category="dimred")
-```
-
-## Select and Load Artifacts
-
-Artifacts can be selected by semantic kind:
-
-```python
-artifact = run.artifact(
-    kind="descriptor_table",
-    category="chem",
-    operation="chem.features",
-)
-
-loaded = run.load_artifact(
-    kind="descriptor_table",
-    category="chem",
-    operation="chem.features",
-)
-
-loaded.data
-loaded.metadata
-```
-
-Use `required="path/fragment.csv"` when a kind/category query needs
-disambiguation.
-
-Supported artifact kinds include:
-
-| Kind | Description |
-|---|---|
-| `molecule_registry` | Canonical molecule registry |
-| `descriptor_table` | Molecular descriptor matrix |
-| `tanimoto_matrix` | Pairwise Tanimoto similarity |
-| `projection_coordinates` | PCA / t-SNE / UMAP coordinates |
-| `figure` | Generated plot files |
-| `metadata` | Operation metadata |
-| `workflow_summary` | Human-readable run summary |
-| `unknown` | Unclassified artifact |
-
-## Scientific Spaces
-
-`WorkflowRun` can load scientific views over existing artifacts:
-
-```python
-descriptors = run.descriptor_space(
-    category="chem",
-    operation="chem.features",
-)
-
-similarity = run.similarity_space(category="chem")
-
-projection = run.projection_space(
-    category="dimred",
-    operation="dimred.pca",
-)
-```
-
-These views expose molecule identifiers when available:
-
-```python
-descriptors.molecule_ids
-similarity.molecule_ids
-projection.molecule_ids
-```
-
-## Alignment and Science Helpers
-
-```python
-from hddflyzer.science import (
-    align_spaces,
-    compare_descriptor_groups,
-    descriptor_projection_correlations,
-    projection_neighborhood_preservation,
-    similarity_projection_correlation,
-    similarity_projection_neighbor_overlap,
-)
-
-descriptors_aligned, projection_aligned = align_spaces(descriptors, projection)
-
-global_corr      = similarity_projection_correlation(similarity, projection)
-neighbor_overlap = similarity_projection_neighbor_overlap(similarity, projection, k=10)
-desc_ranking     = descriptor_projection_correlations(descriptors, projection)
-local_preserv    = projection_neighborhood_preservation(similarity, projection, k=10)
-group_diff       = compare_descriptor_groups(descriptors, labels="class_label")
-```
-
-!!! note "Science helpers do not recalculate"
-    These helpers operate on existing artifacts. They do not recalculate
-    descriptors, similarity, or projections; do not generate plots; and do not
-    perform automatic clustering, enrichment, or chemical interpretation.
-
-## Visualization from Reconstructed Results
-
-```python
-from hddflyzer.viz import resolve_viz_inputs, plot_hddf_scatters
-
-inputs = resolve_viz_inputs(
-    run,
-    kind="descriptor_table",
-    category="chem",
-    required="features/full/features.csv",
-)
-
-plot_hddf_scatters(inputs)
-```
-
-`plot_hddf_scatters()` also accepts a loaded descriptor-table artifact directly.
+- a docking workflow;
+- a web dashboard;
+- a cloud or server workflow;
+- an automatic clustering system;
+- an enrichment workflow;
+- an automatic chemical interpretation engine;
+- a published PyPI package or public release, unless verified separately.
 
 ## Safety Notes
 

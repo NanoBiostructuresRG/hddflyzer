@@ -3,7 +3,7 @@
 """
 HDDFlyzer
 =========
-High-Dimensional Descriptor-based Pharmacological Analyzer.
+High-Dimensional Descriptor-based Feature Space Analyzer.
 
 A scientific toolkit for molecular descriptor analysis,
 chemical space visualization, and pharmacological similarity
