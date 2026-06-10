@@ -431,7 +431,8 @@ hddflyzer --help
 - ROADMAP is internal-planning-shaped.
 - License files are present.
 - Citation metadata is present.
-- Release links and changelog references match existing GitHub releases.
+- Release links and changelog references match existing GitHub pre-releases and
+  releases.
 - Example data and generated-result policies are clear before public exposure.
 
 ### P24 — Minimal CI ⬜
@@ -448,15 +449,16 @@ hddflyzer --help
 Python-version matrices, docs deployment, package publishing, and more complex
 CI jobs should be added only after the basic workflow is stable.
 
-### P25 — Release Readiness ⬜
+### P25 — Pre-release and Release Readiness ⬜
 
-**Goal:** Maintain defensible GitHub releases and prepare for broader release
-readiness.
+**Goal:** Maintain defensible GitHub pre-releases/releases and prepare for
+broader release readiness.
 
 **Expected outcome:**
 
 - `v0.1.0` remains documented as the first GitHub pre-release.
-- Future releases, including `v0.1.1`, summarize real current capabilities.
+- `v0.1.1` is scoped as a documentation-focused GitHub pre-release.
+- Future releases summarize real current capabilities.
 - Tags and GitHub Releases are created only after branch validation and review.
 - PyPI is considered only after packaging and install smoke tests are reliable.
 
@@ -481,7 +483,8 @@ packaging, documentation, and validation are stronger:
 1. Finish local validation for `dev/v0.1.1`.
 2. Push `dev/v0.1.1` and open PR to `main`.
 3. Merge to `main` if review passes.
-4. Tag and publish `v0.1.1` as a GitHub Release.
-5. Continue with packaging/installability review.
-6. Add minimal CI when appropriate.
-7. Decide public visibility/PyPI only after installability is validated.
+4. Tag and publish `v0.1.1` as a GitHub pre-release.
+5. Continue with `v0.1.2` packaging/installability review.
+6. Add minimal CI/docs validation in `v0.1.3`.
+7. Defer PyPI readiness/publication to `v0.1.4` or later, after
+   installability is validated.
