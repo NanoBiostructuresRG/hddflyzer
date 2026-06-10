@@ -62,6 +62,8 @@ Examples
 
 import sys
 
+from hddflyzer.version import __version__
+
 
 # ============================================================
 # ROUTERS
@@ -376,6 +378,10 @@ Run 'hddflyzer <module>' for subcommand details.
 """.strip())
 
 
+def _print_version():
+    print(f"HDDFlyzer {__version__}")
+
+
 # ============================================================
 # MAIN
 # ============================================================
@@ -385,6 +391,10 @@ def main():
 
     if not args or args[0] in ("-h", "--help"):
         _usage_main()
+        return
+
+    if args[0] in ("--version", "-V"):
+        _print_version()
         return
 
     module = args[0].lower()
