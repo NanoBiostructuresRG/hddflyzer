@@ -341,19 +341,23 @@ readiness.
 
 ## Active Documentation Cleanup
 
-### D-Cleanup — Public Documentation and Internal Planning Cleanup 🟡
+### D-Cleanup — Public Documentation and Internal Planning Cleanup ✅
 
 **Goal:** Convert accumulated internal documentation into public-facing project
 documentation and separate public changelog material from internal planning
 history.
 
-**Current work:**
+**Outcome:** The public-facing documentation and visual cleanup cycle was closed
+on `dev/v0.1.1`.
 
-- README editorial restructuring for external readers.
-- CHANGELOG cleanup into a user-facing changelog.
-- ROADMAP extraction, audit, and polish from the old changelog/development log.
-- Branding clarification: `HDD` refers to high-dimensional descriptors, while
-  `Flyzer` is treated as a stylized project name for exploration/analysis.
+Completed documentation work included:
+
+- Home/docs identity refinements for HDDFlyzer.
+- Usage/API page flow cleanup so practical CLI usage and Python API reference
+  are separated.
+- Changelog documentation wrapper review and rendered changelog validation.
+- MkDocs theme, color, footer, admonition, and documentation asset updates.
+- Addition of `CITATION.cff`.
 
 ## Packaging and External Readiness
 
@@ -371,7 +375,8 @@ history.
 
 ### P20 — Repository Hygiene ⬜
 
-**Goal:** Prepare the local repository for eventual GitHub upload.
+**Goal:** Keep the private GitHub repository ready for eventual public
+publication.
 
 **Expected outcome:**
 
@@ -380,6 +385,8 @@ history.
 - The policy for `results/` is clear.
 - The policy for example input data is clear.
 - No large, private, or accidental local files are tracked.
+- The private `NanoBiostructuresRG/hddflyzer` repository remains clean enough
+  to make public when release readiness allows it.
 
 ### P21 — Canonical Example Policy ⬜
 
@@ -413,9 +420,9 @@ python -m pip install -e .
 hddflyzer --help
 ```
 
-### P23 — GitHub Upload Preparation ⬜
+### P23 — Repository Publication Readiness ⬜
 
-**Goal:** Prepare the first public repository state.
+**Goal:** Prepare the existing private GitHub repository for public visibility.
 
 **Expected outcome:**
 
@@ -423,8 +430,9 @@ hddflyzer --help
 - CHANGELOG is changelog-shaped.
 - ROADMAP is internal-planning-shaped.
 - License files are present.
-- Citation metadata is present if appropriate.
-- No release links are included before releases exist.
+- Citation metadata is present.
+- Release links and changelog references match existing GitHub pre-releases.
+- Example data and generated-result policies are clear before public exposure.
 
 ### P24 — Minimal CI ⬜
 
@@ -440,15 +448,16 @@ hddflyzer --help
 Python-version matrices, docs deployment, package publishing, and more complex
 CI jobs should be added only after the basic workflow is stable.
 
-### P25 — Initial Public Release ⬜
+### P25 — Pre-release and Release Readiness ⬜
 
-**Goal:** Publish a first defensible version.
+**Goal:** Maintain defensible GitHub pre-releases and prepare for broader
+release readiness.
 
 **Expected outcome:**
 
-- A clean tag is created.
-- A GitHub Release is written.
-- Release notes summarize real current capabilities.
+- `v0.1.0` remains documented as the first GitHub pre-release.
+- Future pre-releases, including `v0.1.1`, summarize real current capabilities.
+- Tags and GitHub Releases are created only after branch validation and review.
 - PyPI is considered only after packaging and install smoke tests are reliable.
 
 ## Deferred Work
@@ -469,12 +478,10 @@ packaging, documentation, and validation are stronger:
 
 ## Current Recommended Order
 
-1. Finish README cleanup.
-2. Finish CHANGELOG cleanup.
-3. Finalize ROADMAP audit/polish as the internal planning document.
-4. Review `.gitignore`, local outputs, and example-data policy.
-5. Validate packaging/installability.
-6. Decide how to handle `results/aocd/`.
-7. Prepare the repository for GitHub.
-8. Add minimal CI.
-9. Plan the first public release.
+1. Finish local validation for `dev/v0.1.1`.
+2. Push `dev/v0.1.1` and open PR to `main`.
+3. Merge to `main` if review passes.
+4. Tag and publish `v0.1.1` as a GitHub pre-release.
+5. Continue with packaging/installability review.
+6. Add minimal CI when appropriate.
+7. Decide public visibility/PyPI only after installability is validated.
