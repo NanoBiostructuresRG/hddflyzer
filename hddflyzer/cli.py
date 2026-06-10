@@ -359,7 +359,7 @@ Options for run:
 
 def _usage_main():
     print("""
-HDDFlyzer — High-Dimensional Descriptor-based Pharmacological Analyzer
+HDDFlyzer — High-Dimensional Descriptor-based Feature Space Analyzer
 
 Usage:
   hddflyzer <module> <subcommand> [args...]
