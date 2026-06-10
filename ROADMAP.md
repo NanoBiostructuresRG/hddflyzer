@@ -7,7 +7,7 @@ changelog should record notable user-facing changes. This roadmap records
 project direction, completed checkpoints, active documentation/hardening work,
 and future readiness steps.
 
-HDDFlyzer is currently treated as local pre-release research software. The
+HDDFlyzer is currently treated as pre-stable research software. The
 current priority is not adding more scientific features, but consolidating the
 project identity, documentation, safety posture, installability, and external
 readiness.
@@ -431,7 +431,7 @@ hddflyzer --help
 - ROADMAP is internal-planning-shaped.
 - License files are present.
 - Citation metadata is present.
-- Release links and changelog references match existing GitHub pre-releases.
+- Release links and changelog references match existing GitHub releases.
 - Example data and generated-result policies are clear before public exposure.
 
 ### P24 — Minimal CI ⬜
@@ -448,15 +448,15 @@ hddflyzer --help
 Python-version matrices, docs deployment, package publishing, and more complex
 CI jobs should be added only after the basic workflow is stable.
 
-### P25 — Pre-release and Release Readiness ⬜
+### P25 — Release Readiness ⬜
 
-**Goal:** Maintain defensible GitHub pre-releases and prepare for broader
-release readiness.
+**Goal:** Maintain defensible GitHub releases and prepare for broader release
+readiness.
 
 **Expected outcome:**
 
 - `v0.1.0` remains documented as the first GitHub pre-release.
-- Future pre-releases, including `v0.1.1`, summarize real current capabilities.
+- Future releases, including `v0.1.1`, summarize real current capabilities.
 - Tags and GitHub Releases are created only after branch validation and review.
 - PyPI is considered only after packaging and install smoke tests are reliable.
 
@@ -481,7 +481,7 @@ packaging, documentation, and validation are stronger:
 1. Finish local validation for `dev/v0.1.1`.
 2. Push `dev/v0.1.1` and open PR to `main`.
 3. Merge to `main` if review passes.
-4. Tag and publish `v0.1.1` as a GitHub pre-release.
+4. Tag and publish `v0.1.1` as a GitHub Release.
 5. Continue with packaging/installability review.
 6. Add minimal CI when appropriate.
 7. Decide public visibility/PyPI only after installability is validated.

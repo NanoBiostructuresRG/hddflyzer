@@ -1,7 +1,7 @@
 # HDDFlyzer: High-Dimensional Descriptor-based Feature Space Analyzer
 
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-v0.1.0-blue.svg)](https://pypi.org/project/hddflyzer/)
+[![Version](https://img.shields.io/badge/version-v0.1.1-blue.svg)](https://pypi.org/project/hddflyzer/)
 [![PyPI](https://img.shields.io/pypi/v/hddflyzer.svg)](https://pypi.org/project/hddflyzer/)
 [![Python](https://img.shields.io/pypi/pyversions/hddflyzer.svg)](https://pypi.org/project/hddflyzer/)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-teal.svg)](https://nanobiostructuresrg.github.io/hddflyzer/)
@@ -604,7 +604,7 @@ routing, reconstructed results, scientific views, and visualization APIs.
 
 ## Status
 
-**HDDFlyzer** is pre-release research software. The command structure is stabilizing, but output
+**HDDFlyzer** is pre-stable research software. The command structure is stabilizing, but output
 contracts may still evolve as the real-data pipeline matures.
 
 ---
