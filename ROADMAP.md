@@ -441,19 +441,22 @@ python -m build
   releases.
 - Example data and generated-result policies are clear before public exposure.
 
-### P24 — Minimal CI ⬜
+### P24 — Minimal CI ✅
 
 **Goal:** Add basic continuous integration after the repository is public.
 
 **Expected outcome:**
 
-- Install dependencies.
+- `v0.1.3` adds minimal GitHub Actions CI for HDDFlyzer.
+- Install dependencies on `ubuntu-latest` with Python 3.11.
 - Run the test suite.
 - Smoke-test package import.
 - Smoke-test CLI availability.
+- Build wheel and sdist artifacts locally.
 
 Python-version matrices, docs deployment, package publishing, and more complex
-CI jobs should be added only after the basic workflow is stable.
+CI jobs should be added only after the basic workflow is stable. PyPI remains
+deferred.
 
 ### P25 — Pre-release and Release Readiness ⬜
 
@@ -466,6 +469,7 @@ broader release readiness.
 - `v0.1.1` is scoped as a documentation-focused GitHub pre-release.
 - `v0.1.2` is scoped as a packaging/installability-focused GitHub
   pre-release.
+- `v0.1.3` is scoped as a minimal-CI GitHub pre-release.
 - Future releases summarize real current capabilities.
 - Tags and GitHub Releases are created only after branch validation and review.
 - PyPI remains deferred until after installability and minimal CI are reliable.
@@ -488,10 +492,9 @@ packaging, documentation, and validation are stronger:
 
 ## Current Recommended Order
 
-1. Close `dev/v0.1.2` after packaging/installability validation is reviewed.
-2. Push `dev/v0.1.2` and open PR to `main`.
+1. Close `dev/v0.1.3` after minimal CI metadata and documentation are reviewed.
+2. Push `dev/v0.1.3` and open PR to `main`.
 3. Merge to `main` if review passes.
-4. Tag and publish `v0.1.2` as a GitHub pre-release.
-5. Continue with `v0.1.3` for minimal CI/docs validation.
-6. Defer PyPI readiness/publication to `v0.1.4` or later, after
+4. Tag and publish `v0.1.3` as a GitHub pre-release.
+5. Defer PyPI readiness/publication to `v0.1.4` or later, after
    installability and minimal CI are validated.
