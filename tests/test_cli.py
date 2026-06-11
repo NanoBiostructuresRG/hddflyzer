@@ -87,3 +87,19 @@ def test_reference_features_router_preserves_reference_mode(monkeypatch):
     cli._chem(["reference-features", "aocd", "--reference", "custom"])
 
     assert seen == [["hddflyzer", "reference", "aocd", "--reference", "custom"]]
+
+
+def test_main_prints_version_for_long_option(monkeypatch, capsys):
+    monkeypatch.setattr(sys, "argv", ["hddflyzer", "--version"])
+
+    cli.main()
+
+    assert capsys.readouterr().out.strip() == f"HDDFlyzer {cli.__version__}"
+
+
+def test_main_prints_version_for_short_option(monkeypatch, capsys):
+    monkeypatch.setattr(sys, "argv", ["hddflyzer", "-V"])
+
+    cli.main()
+
+    assert capsys.readouterr().out.strip() == f"HDDFlyzer {cli.__version__}"

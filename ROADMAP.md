@@ -361,17 +361,20 @@ Completed documentation work included:
 
 ## Packaging and External Readiness
 
-### P19 — Packaging ⬜
+### P19 — Packaging ✅
 
 **Goal:** Convert HDDFlyzer into a cleanly installable package.
 
 **Expected outcome:**
 
 - `pyproject.toml` is present and coherent.
+- HDDFlyzer packaging and local installability are validated for `v0.1.2`.
 - The `hddflyzer` CLI entry point installs correctly.
-- `pip install -e .` works in a clean local environment.
-- Import smoke tests pass.
-- CLI smoke tests pass.
+- Global version flags are supported and covered:
+  `hddflyzer --version` and `hddflyzer -V`.
+- `pip install -e .`, import smoke checks, CLI smoke checks, and
+  `python -m build` were validated locally.
+- Wheel and sdist builds include `hddflyzer/config/descriptor_config.json`.
 
 ### P20 — Repository Hygiene ⬜
 
@@ -410,14 +413,17 @@ python -m pytest tests -q
 python -m py_compile hddflyzer
 python -c "import hddflyzer; print('OK')"
 hddflyzer --help
+hddflyzer --version
+hddflyzer -V
 hddflyzer pipeline --help
 ```
 
-If packaging is available:
+Packaging validation:
 
 ```powershell
 python -m pip install -e .
 hddflyzer --help
+python -m build
 ```
 
 ### P23 — Repository Publication Readiness ⬜
@@ -458,9 +464,11 @@ broader release readiness.
 
 - `v0.1.0` remains documented as the first GitHub pre-release.
 - `v0.1.1` is scoped as a documentation-focused GitHub pre-release.
+- `v0.1.2` is scoped as a packaging/installability-focused GitHub
+  pre-release.
 - Future releases summarize real current capabilities.
 - Tags and GitHub Releases are created only after branch validation and review.
-- PyPI is considered only after packaging and install smoke tests are reliable.
+- PyPI remains deferred until after installability and minimal CI are reliable.
 
 ## Deferred Work
 
@@ -480,11 +488,10 @@ packaging, documentation, and validation are stronger:
 
 ## Current Recommended Order
 
-1. Finish local validation for `dev/v0.1.1`.
-2. Push `dev/v0.1.1` and open PR to `main`.
+1. Close `dev/v0.1.2` after packaging/installability validation is reviewed.
+2. Push `dev/v0.1.2` and open PR to `main`.
 3. Merge to `main` if review passes.
-4. Tag and publish `v0.1.1` as a GitHub pre-release.
-5. Continue with `v0.1.2` packaging/installability review.
-6. Add minimal CI/docs validation in `v0.1.3`.
-7. Defer PyPI readiness/publication to `v0.1.4` or later, after
-   installability is validated.
+4. Tag and publish `v0.1.2` as a GitHub pre-release.
+5. Continue with `v0.1.3` for minimal CI/docs validation.
+6. Defer PyPI readiness/publication to `v0.1.4` or later, after
+   installability and minimal CI are validated.
