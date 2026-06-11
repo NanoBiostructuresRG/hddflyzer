@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 type: software
 title: "HDDFlyzer: High-Dimensional Descriptor-based Feature Space Analyzer"
-version: "0.1.1"
+version: "0.1.2"
 date-released: "2026-06-10"
 authors:
   - family-names: "Contreras-Torres"
