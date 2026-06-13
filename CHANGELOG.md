@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.4] - 2026-06-13
+
+### Added
+
+- Added a GitHub Actions documentation workflow for MkDocs / GitHub Pages
+  validation.
+
+### Changed
+
+- Updated the internal HDDFlyzer version to `0.1.4`.
+- Separated documentation dependencies through the `[docs]` optional dependency
+  group.
+- Added a preventive MkDocs version bound with `mkdocs>=1.6,<2.0`.
+
+### Documentation
+
+- Validated the documentation site with `mkdocs build --strict`.
+- Prepared the `v0.1.4` cycle for documentation web / GitHub Pages readiness
+  without publishing PyPI in this cycle.
+
+---
+
 ## [0.1.3] - 2026-06-11
 
 ### Added
@@ -199,6 +221,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[0.1.4]: https://github.com/NanoBiostructuresRG/hddflyzer/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/NanoBiostructuresRG/hddflyzer/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/NanoBiostructuresRG/hddflyzer/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/NanoBiostructuresRG/hddflyzer/compare/v0.1.0...v0.1.1
