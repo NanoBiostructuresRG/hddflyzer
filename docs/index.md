@@ -111,7 +111,7 @@ By keeping these elements together, HDDFlyzer makes it easier to return to a pre
 ## Citation
 
 ```text
-Contreras-Torres, F. F. (2026). HDDFlyzer: High-Dimensional Descriptor-based Feature Space Analyzer. https://github.com/NanoBiostructuresRG/hddflyzer
+Contreras-Torres, F. F. and Saldivar-González, F. I. (2026). HDDFlyzer: High-Dimensional Descriptor-based Feature Space Analyzer. https://github.com/NanoBiostructuresRG/hddflyzer
 ```
 
 ## License
