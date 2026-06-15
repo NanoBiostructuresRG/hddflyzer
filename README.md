@@ -1,7 +1,7 @@
 # HDDFlyzer: High-Dimensional Descriptor-based Feature Space Analyzer
 
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-v0.1.4-blue.svg)](https://pypi.org/project/hddflyzer/)
+[![Version](https://img.shields.io/badge/version-v0.1.5-blue.svg)](https://pypi.org/project/hddflyzer/)
 [![PyPI](https://img.shields.io/pypi/v/hddflyzer.svg)](https://pypi.org/project/hddflyzer/)
 [![Python](https://img.shields.io/pypi/pyversions/hddflyzer.svg)](https://pypi.org/project/hddflyzer/)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-teal.svg)](https://nanobiostructuresrg.github.io/hddflyzer/)
@@ -94,6 +94,15 @@ results/aocd/
 ## Installation
 
 Python 3.11 or newer is recommended. RDKit is best installed from conda-forge.
+
+After `v0.1.5` is merged, tagged, and published through the manual PyPI
+workflow, HDDFlyzer can be installed from PyPI:
+
+```bash
+pip install hddflyzer
+```
+
+For local development from a source checkout:
 
 ```bash
 conda create -n hddflyzer_env python=3.11
@@ -626,14 +635,14 @@ If you use **HDDFlyzer** in your research, please cite it using the metadata in
 [CITATION.cff](CITATION.cff) or the format below:
 
 ```text
-Contreras-Torres, F. F. (2026). HDDFlyzer: High-Dimensional Descriptor-based Feature Space Analyzer. https://github.com/NanoBiostructuresRG/hddflyzer
+Contreras-Torres, F. F. and Saldivar-González, F. I. (2026). HDDFlyzer: High-Dimensional Descriptor-based Feature Space Analyzer. https://github.com/NanoBiostructuresRG/hddflyzer
 ```
 
 ---
 
 ## Author
 
-Developed by **Flavio F. Contreras-Torres** (Tecnologico de Monterrey)
+Developed by **Flavio F. Contreras-Torres** (Tecnologico de Monterrey) and **Fernanda I. Saldivar-González** (Tecnologico de Monterrey)
 Monterrey, Mexico - June 2026
 
 ---

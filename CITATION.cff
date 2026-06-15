@@ -2,12 +2,16 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 type: software
 title: "HDDFlyzer: High-Dimensional Descriptor-based Feature Space Analyzer"
-version: "0.1.4"
-date-released: "2026-06-13"
+version: "0.1.5"
+date-released: "2026-06-14"
 authors:
   - family-names: "Contreras-Torres"
     given-names: "Flavio F."
     orcid: "https://orcid.org/0000-0003-2375-131X"
+    affiliation: "Tecnologico de Monterrey"
+  - family-names: "Saldivar-González"
+    given-names: "Fernanda I."
+    orcid: "https://orcid.org/0000-0002-0435-8662"
     affiliation: "Tecnologico de Monterrey"
 repository-code: "https://github.com/NanoBiostructuresRG/hddflyzer"
 license: "LGPL-3.0-or-later"

@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.5] - 2026-06-15
+
+### Added
+
+- Added preparation for publishing HDDFlyzer to PyPI.
+- Added the manual `publish-to-pypi.yml` workflow using PyPI Trusted
+  Publishing.
+
+### Changed
+
+- Updated project metadata to `0.1.5`.
+- Updated `environment.yml` to install `hddflyzer==0.1.5`.
+- Updated CI to validate Python 3.11 and 3.12 with `twine check`.
+- Prepared the release workflow for a single build-and-publish path after the
+  release tag and manual workflow dispatch are in place.
+
+### Validation
+
+- Validated the package on Python 3.11 and 3.12 before publication.
+- Validated wheel and sdist builds, `twine check`, and wheel-based smoke
+  installation.
+- PyPI publication is prepared for this cycle but must still be triggered
+  through the manual trusted-publishing workflow.
+
+---
+
 ## [0.1.4] - 2026-06-13
 
 ### Added
@@ -221,6 +247,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[0.1.5]: https://github.com/NanoBiostructuresRG/hddflyzer/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/NanoBiostructuresRG/hddflyzer/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/NanoBiostructuresRG/hddflyzer/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/NanoBiostructuresRG/hddflyzer/compare/v0.1.1...v0.1.2

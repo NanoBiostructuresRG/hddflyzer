@@ -6,7 +6,7 @@ dependencies:
   - python=3.11
   - pip
   - pip:
-      - hddflyzer==0.1.0
+      - hddflyzer==0.1.5
       - pytest>=7.0
       - build>=1.0
       - twine>=4.0
