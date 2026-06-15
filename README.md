@@ -95,6 +95,15 @@ results/aocd/
 
 Python 3.11 or newer is recommended. RDKit is best installed from conda-forge.
 
+After `v0.1.5` is merged, tagged, and published through the manual PyPI
+workflow, HDDFlyzer can be installed from PyPI:
+
+```bash
+pip install hddflyzer
+```
+
+For local development from a source checkout:
+
 ```bash
 conda create -n hddflyzer_env python=3.11
 conda activate hddflyzer_env

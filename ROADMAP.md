@@ -471,9 +471,12 @@ broader release readiness.
   pre-release.
 - `v0.1.3` is scoped as a minimal-CI GitHub pre-release.
 - `v0.1.4` is scoped as a documentation web / GitHub Pages readiness cycle.
+- `v0.1.5` prepares PyPI publishing with a manual Trusted Publishing workflow,
+  Python 3.11/3.12 validation, and single build-and-publish release handling.
 - Future releases summarize real current capabilities.
 - Tags and GitHub Releases are created only after branch validation and review.
-- PyPI remains deferred until after installability and minimal CI are reliable.
+- PyPI publication remains dependent on merge, release tag creation, and manual
+  workflow dispatch.
 
 ## Deferred Work
 
@@ -489,14 +492,15 @@ packaging, documentation, and validation are stronger:
 - conformer generation and 3D descriptor workflows;
 - broad CLI expansion;
 - large notebook collections;
-- PyPI publication before installability is validated.
+- PyPI publication before installability, CI, and trusted publishing are
+  validated.
 
 ## Current Recommended Order
 
-1. Close `dev/v0.1.4` after documentation workflow and metadata validation are
+1. Close `dev/v0.1.5` after PyPI publishing preparation and documentation are
    reviewed.
-2. Push `dev/v0.1.4` and open PR to `main`.
+2. Push `dev/v0.1.5` and open PR to `main`.
 3. Merge to `main` if review passes.
-4. Tag and publish `v0.1.4` as a GitHub pre-release.
-5. Continue with `v0.1.5` for PyPI readiness/publication only after
-   installability, minimal CI, and documentation workflow validation are stable.
+4. Tag `v0.1.5` after merge.
+5. Dispatch the manual PyPI publishing workflow only after the tag and release
+   state are verified.

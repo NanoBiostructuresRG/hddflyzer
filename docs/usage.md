@@ -5,6 +5,9 @@ the result folder it creates.
 
 ## Installation
 
+After `v0.1.5` is merged, tagged, and published through the manual PyPI
+workflow:
+
 ```bash
 pip install hddflyzer
 ```
@@ -256,7 +259,8 @@ HDDFlyzer is not currently:
 - an automatic clustering system;
 - an enrichment workflow;
 - an automatic chemical interpretation engine;
-- a published PyPI package or public release, unless verified separately.
+- a published PyPI package or public release until the `v0.1.5` tag and manual
+  publishing workflow have completed successfully.
 
 ## Safety Notes
 
